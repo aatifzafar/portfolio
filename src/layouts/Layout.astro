@@ -13,11 +13,10 @@ const { title } = Astro.props;
     <title>{title} | Software Developer</title>
     <meta
       name="description"
-      content="Oscar Andres Hernandez Pineda - Software Developer building interactive and seamless digital experiences with cutting-edge frontend development."
+      content="Mohammed Aatif Zafar - Software Developer building interactive and seamless digital experiences with cutting-edge frontend development."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="canonical" href="https://oscarhernandez.vercel.app/" />
 
     <link
       rel="preload"
@@ -29,21 +28,20 @@ const { title } = Astro.props;
 
     <meta
       property="og:title"
-      content="Oscar Andres Hernandez Pineda | Software Developer"
+      content="Mohammed Aatif Zafar | Software Developer"
     />
     <meta
       property="og:description"
-      content="Portfolio of Oscar Andres Hernandez Pineda, Software Developer specializing in frontend and interactive experiences."
+      content="Portfolio of Mohammed Aatif Zafar, Software Developer specializing in web development and interactive experiences."
     />
     <meta
       property="og:image"
-      content="https://oscarhernandez.vercel.app/og.image.png"
+      content="/og.image.png"
     />
-    <meta property="og:url" content="https://oscarhernandez.vercel.app" />
     <meta property="og:type" content="website" />
     <meta
       property="og:site_name"
-      content="Oscar Andres Hernandez Pineda Portfolio"
+      content="Mohammed Aatif Zafar Portfolio"
     />
 
     <!-- Structured Data (JSON-LD) -->
@@ -51,20 +49,18 @@ const { title } = Astro.props;
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Oscar Andres Hernandez Pineda",
-        "alternateName": "Oscar Hernandez",
-        "url": "https://oscarhernandez.vercel.app",
-        "image": "https://oscarhernandez.vercel.app/og.image.png",
+        "name": "Mohammed Aatif Zafar",
+        "alternateName": "Aatif Zafar",
         "sameAs": [
-          "https://github.com/gothsec",
-          "https://linkedin.com/in/andresshernandez-eng"
+          "https://github.com/aatifzafar",
+          "https://www.linkedin.com/in/mohammed-aatif-zafar-23006b333/"
         ],
         "jobTitle": "Software Developer",
         "description": "Software Developer building interactive and seamless digital experiences."
       }
     </script>
   </head>
-  <body class="bg-[--background] sm:px-28 lg:px-20 px-9">
+  <body class="bg-[var(--background)] text-[var(--white)] sm:px-28 lg:px-20 px-9">
     <slot />
   </body>
 </html>
@@ -81,10 +77,19 @@ const { title } = Astro.props;
 
   :root {
     --background: #101010;
+    --component-bg: #1414149c;
     --sec: #a476ff;
     --white: #dfdfdf;
     --white-icon: #f3f3f398;
     --white-icon-tr: #f3f3f310;
+    --badge-bg: #1a1a1a;
+    --border-color: #ffffff10;
+    --tech-icon-filter: brightness(0) invert(1) opacity(0.5);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--white);
   }
 
   * {

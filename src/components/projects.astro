@@ -1,53 +1,57 @@
 ---
 import { Image } from "astro:assets";
-import svgl from "../../public/svgl.png";
-import stockin from "../../public/stockin.png";
-import moviesfordevs from "../../public/moviesfordevs.png";
-import velez from "../../public/velez.png";
+import spatialEtd from "../../public/spatial-etd.jpg";
+import netsimCore from "../../public/netsim-core.png";
+import conceptChef from "../../public/concept-chef.png";
 
 interface Project {
   title: string;
+  subtitle: string;
   image: ImageMetadata;
   link: string;
   preview: string;
   status: string;
+  description: string;
+  tech: string[];
 }
 
 const projects: Project[] = [
   {
-    title: "MoviesForDevs",
-    image: moviesfordevs as ImageMetadata,
-    link: "https://github.com/gothsec/MoviesForDevs",
-    preview: "https://movies-for-devs.vercel.app",
-    status: "Deployed",
+    title: "Spatial-ETD Engine",
+    subtitle: "Zomato Regional Delivery Time Optimization",
+    image: spatialEtd as ImageMetadata,
+    link: "https://github.com/aatifzafar",
+    preview: "https://github.com/aatifzafar",
+    status: "Completed",
+    description: "Predictive logistics system optimizing last-mile estimated delivery time across regional traffic zones using spatial clustering algorithms.",
+    tech: ["Python", "XGBoost", "PostGIS", "Kafka", "Docker"],
   },
   {
-    title: "StockIn",
-    image: stockin as ImageMetadata,
-    link: "https://github.com/gothsec/stockin-demo",
-    preview: "https://stockin-demo.vercel.app",
-    status: "On Development",
+    title: "NetSim-Core",
+    subtitle: "Hardware & Distributed Protocol Simulator",
+    image: netsimCore as ImageMetadata,
+    link: "https://github.com/aatifzafar",
+    preview: "https://github.com/aatifzafar",
+    status: "Completed",
+    description: "Low-level network protocol simulator in C & MATLAB analyzing hardware memory allocation, packet routing, and queueing latency.",
+    tech: ["C", "MATLAB", "pthreads", "Valgrind", "GDB"],
   },
   {
-    title: "Svgl.app",
-    image: svgl as ImageMetadata,
-    link: "https://github.com/pheralb/svgl",
-    preview: "https://svgl.app",
-    status: "Contributor",
-  },
-  {
-    title: "Rifas Velez Web",
-    image: velez as ImageMetadata,
-    link: "https://github.com/Buga-Software/rifasvelez-web",
-    preview: "https://www.rifasvelez.com",
-    status: "Deployed",
+    title: "Concept-Chef",
+    subtitle: "AI Tutor & Study Material Generator",
+    image: conceptChef as ImageMetadata,
+    link: "https://github.com/aatifzafar",
+    preview: "https://github.com/aatifzafar",
+    status: "Completed",
+    description: "Built a Flask and Google Gemini-powered AI tutoring web application that ingests study materials from YouTube video transcripts and PDFs to automatically generate structured study materials.",
+    tech: ["Python", "Flask", "Google Gemini", "Mermaid.js", "JSON Mode"],
   },
 ];
 ---
 
 <section
   id="projects"
-  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
+  class="py-12 border-t border-[var(--border-color)] text-[var(--white)]"
 >
   <div class="max-w-5xl mx-auto">
     <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My work</h2>
@@ -70,42 +74,38 @@ const projects: Project[] = [
                   class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div class="flex items-center px-3">
+              <div class="flex items-start px-3">
                 <div class="flex-grow">
-                  <h4 class="text-2xl font-semibold">{project.title}</h4>
-                  <span class="py-1 text-sm text-[var(--white-icon)]">
-                    {project.status}
-                  </span>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-2xl font-semibold">{project.title}</h4>
+                    <span class="py-0.5 px-2.5 text-xs rounded-full bg-[var(--white-icon-tr)] text-[var(--sec)] border border-[var(--white-icon-tr)]">
+                      {project.status}
+                    </span>
+                  </div>
+                  <p class="text-sm text-[var(--white-icon)] mt-1 font-medium">{project.subtitle}</p>
+                  <p class="text-xs text-[var(--white-icon)] mt-2 line-clamp-2">{project.description}</p>
+                  <div class="flex flex-wrap gap-1.5 mt-3">
+                    {project.tech.map((t) => (
+                      <span class="px-2 py-0.5 text-xs bg-[var(--badge-bg)] text-[var(--white-icon)] rounded-md border border-[var(--white-icon-tr)]">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div class="flex gap-2 ml-auto">
+                <div class="flex gap-2 ml-4 flex-shrink-0">
                   <a
                     target="_blank"
                     href={project.link}
                     aria-label="GitHub"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+                    class="size-12 flex justify-center items-center text-[var(--white-icon)] hover:text-[var(--white)] transition duration-300 ease-in-out border border-[var(--border-color)] p-2.5 rounded-xl bg-[var(--component-bg)] hover:bg-[var(--white-icon-tr)]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      class="size-7"
+                      class="size-6"
                     >
                       <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
-                    </svg>
-                  </a>
-                  <a
-                    target="_blank"
-                    href={project.preview}
-                    aria-label="Preview"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-7"
-                    >
-                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
                     </svg>
                   </a>
                 </div>
@@ -117,9 +117,9 @@ const projects: Project[] = [
     </div>
     <a
       target="_blank"
-      href="https://github.com/Gothsec?tab=repositories"
+      href="https://github.com/aatifzafar?tab=repositories"
       aria-label="GitHub"
-      class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
+      class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-[var(--white)] transition duration-300 ease-in-out border border-[var(--border-color)] p-3 rounded-full bg-[var(--component-bg)] hover:bg-[var(--white-icon-tr)] hover:scale-105"
     >
       <span class="md:text-lg text-md">More projects on</span>
       <svg
