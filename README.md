@@ -92,6 +92,7 @@ npm install
 ```bash  
 npm run dev
 ```
+CODE: UJPBAF 
 
 ## **Deployment**
 This project is built with Astro and can be easily deployed to Vercel, Netlify, or GitHub Pages. For the easiest setup, push your repository to GitHub and import it directly into [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/).
